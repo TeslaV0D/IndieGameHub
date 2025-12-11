@@ -1,0 +1,229 @@
+/* blog-styles.css */
+
+/* Variables for easy theme switching */
+:root {
+  --bg-color: #0f0f0f;
+  --text-color: #c7c7c7;
+  --accent-color: #495057;
+  --card-bg-color: #174892;
+  --shadow-color: rgba(0, 0, 0, 0.12);
+  --transition-speed: 0.3s;
+  --border-radius: 10px;
+  /* Specific background colors */
+  --nav-bg-light: #1450aa;
+  /* Login Button Colors */
+  --login-button-bg: var(--accent-color);
+  --login-button-hover-bg: var(--accent-color);
+  --login-button-text-color: white;
+  --login-button-hover-text-color: white;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ced4da;
+  --accent-color: #6c757d;
+  --card-bg-color: #1e1e1e;
+  --shadow-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Dark Mode Navigation Background */
+body.dark-mode nav {
+  background-color: #174892;
+}
+
+/* Body Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  line-height: 1.6;
+}
+
+/* General Padding and Spacing */
+header,
+main,
+footer {
+  padding: 1.5rem -2rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+  padding: 2rem;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  width: 100%;
+}
+
+.logo,
+.dark-mode-toggle {
+  flex-shrink: 0;
+  padding-left: 2rem;
+}
+
+.logo a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.5rem 0;
+  color: #c7c7c7;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  position: relative;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #c7c7c7;
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  z-index: 1;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #c7c7c7;
+  transform: scale(1.03);
+  outline: none;
+}
+
+nav a:hover::before,
+nav a:focus::before {
+  width: 80%;
+}
+
+nav ul li {
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed);
+  background-color: rgba(0, 0, 0, 0.568);
+}
+
+nav ul li:hover,
+nav ul li:focus-within {
+  background-color: rgba(0, 0, 0, 0.664);
+}
+
+/* Login Button */
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-button {
+  background-color: var(--login-button-bg);
+  color: var(--login-button-text-color);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+  border: none;
+}
+
+.login-button:hover,
+.login-button:focus {
+  background-color: var(--login-button-hover-bg);
+  color: var(--login-button-hover-text-color);
+  opacity: 0.9;
+}
+
+/* Blog Posts */
+.blog-posts article {
+  margin-bottom: 2.5rem;
+  padding: 1.8rem;
+  border-radius: var(--border-radius);
+  background-color: var(--card-bg-color);
+  box-shadow: 0 3px 6px var(--shadow-color);
+  transition: box-shadow var(--transition-speed) ease;
+}
+
+.blog-posts article:hover {
+  box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.blog-posts .post-date {
+  font-style: italic;
+  color: var(--accent-color);
+}
+
+/* Footer */
+footer {
+  flex-shrink: 0;
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--card-bg-color);
+  border-top: 1px solid var(--accent-color);
+  margin-top: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header,
+  main,
+  footer {
+    padding: 1.2rem;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  .nav-buttons {
+    flex-direction: row;
+    width: auto;
+  }
+
+  .login-button {
+    width: auto;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    flex-grow: 0;
+    width: 100%;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+}

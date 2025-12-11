@@ -1,0 +1,25 @@
+import random
+
+print("Willkommen zum Zahlenraten!")
+print("Ich denke mir eine Zahl zwischen 1 und 100. Kannst du sie erraten?")
+
+geheime_zahl = random.randint(1, 100)
+versuche = 0
+
+while True:
+    tipp = input("Dein Tipp: ")
+    versuche += 1
+    try:
+        tipp = int(tipp)
+    except ValueError:
+        print("Bitte gib eine gültige Zahl ein!")
+        continue
+
+    if tipp < geheime_zahl:
+        print("Zu klein!")
+    elif tipp > geheime_zahl:
+        print("Zu groß!")
+    else:
+        print(f"Richtig, Boss! Die Zahl war {geheime_zahl}.")
+        print(f"Du hast {versuche} Versuche gebraucht.")
+        break

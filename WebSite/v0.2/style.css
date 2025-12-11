@@ -1,0 +1,787 @@
+/* style.css */
+
+/* Variables for easy theme switching */
+:root {
+  --bg-color: #0f0f0f;
+  --text-color: #c7c7c7;
+  --accent-color: #495057;
+  --card-bg-color: #174892;
+  --shadow-color: rgba(0, 0, 0, 0.12);
+  --glass-bg-color: rgba(255, 255, 255, 0.6);
+  --neumorphic-shadow-light: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+  --neumorphic-shadow-dark: 6px 6px 12px #0b0c0d, -6px -6px 12px #1b1f23;
+  --transition-speed: 0.3s;
+  --border-radius: 10px;
+  /*  Specific background colors */
+  --nav-bg-light: #1450aa;
+  /* --nav-bg-dark: rgba(128, 0, 128, 0.3); */
+  --hero-bg-light: linear-gradient(to bottom, rgba(90, 0, 90, 0.6) 0%, rgba(90, 0, 90, 0.3) 100%), var(--bg-color);
+ /* --hero-bg-dark: linear-gradient(to bottom, rgba(90, 0, 90, 0.6) 0%, rgba(90, 0, 90, 0.3) 100%), var(--bg-color); */
+  --download-bg-light: rgba(0, 0, 0, 0.534);  /* Light theme download button */
+  /* --download-bg-dark: rgba(116, 15, 116, 0.534); */  /* Dark theme download button */
+  /*Login Button Colors*/
+  --login-button-bg: var(--accent-color);
+  --login-button-hover-bg: var(--accent-color);
+  --login-button-text-color: white;
+   --login-button-hover-text-color: white;
+
+}
+
+/* body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ced4da;
+  --accent-color: #6c757d;
+  --card-bg-color: #1e1e1e;
+  --shadow-color: rgba(255, 255, 255, 0.08);
+  --glass-bg-color: rgba(30, 30, 30, 0.5);
+   --hero-bg-dark: linear-gradient(to bottom, rgba(116, 15, 116, 0.534) 0%, rgba(116, 15, 116, 0.3) 100%), var(--bg-color);
+   /*Login Button Colors on Dark mode*/
+  /* --login-button-bg: var(--accent-color);
+  --login-button-hover-bg:  rgba(255, 255, 255, 0.1);
+  --login-button-text-color:  var(--text-color);
+  --login-button-hover-text-color: var(--text-color);
+} */ 
+
+/* --- Dark Mode Navigation Backgrounds --- */
+
+body.dark-mode nav {
+  background-color: #174892;; /* Apply to the entire nav container */
+} 
+
+/* body.dark-mode .logo {
+    background-color: rgba(116, 15, 116, 0.534); /* Apply to the logo */
+    /* padding: 0.5rem; /* Keep some padding, adjust as needed*/
+    /* border-radius: var(--border-radius); *//*Add border radius*/
+/* } */
+/* body.dark-mode .dark-mode-toggle {
+  background-color: rgba(116, 15, 116, 0.534); /* Apply to the toggle container */
+/* } */ 
+
+/* Ensure navigation links don't inherit the nav background */
+/* body.dark-mode nav ul li {
+  background-color: transparent; /* Override any conflicting background */
+   /*background-color: rgba(116, 15, 116, 0.534);/*Also you can use it*/
+/* } */ 
+
+/* Style for the navigation buttons, maintaining hover effects */
+/* body.dark-mode nav ul li:hover,
+body.dark-mode nav ul li:focus-within {
+  background-color: rgba(255, 255, 255, 0.1); /* Keep the existing hover effect */
+/* } */ 
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  line-height: 1.6;
+}
+
+/* General Padding and Spacing */
+header,
+main,
+footer {
+  padding: 1.5rem -2rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+h1,
+h2,
+h3 {
+  font-size: 2rem;
+  padding: 2rem;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+
+/* --- NAVIGATION --- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  width: 100%;
+}
+
+.logo,
+.dark-mode-toggle {
+  flex-shrink: 0;
+  padding-left: 2rem;
+}
+/*Logo to home*/
+.logo a{
+  color: var(--text-color);
+   text-decoration: none;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.5rem 0;
+  color: #c7c7c7;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  position: relative;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #c7c7c7;
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  z-index: 1;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #c7c7c7;
+  transform: scale(1.03);
+  outline: none;
+}
+
+nav a:hover::before,
+nav a:focus::before {
+  width: 80%;
+}
+
+/* Prevent underline/scale on dark-mode-toggle */
+/* .dark-mode-toggle a::before {
+  width: 0 !important;
+} */
+
+/* .dark-mode-toggle a:hover, .dark-mode-toggle a:focus {
+  transform: none;
+} */
+
+/* Navigation button backgrounds */
+nav ul li {
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed);
+  background-color: rgba(0, 0, 0, 0.568); /*Change the background*/
+}
+
+nav ul li:hover,
+nav ul li:focus-within {
+  background-color: rgba(0, 0, 0, 0.664);
+}
+
+/* body.dark-mode nav ul li:hover,
+body.dark-mode nav ul li:focus-within {
+background-color: rgba(255,255,255, 0.1);
+} */
+/*Login Button Style*/
+.nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 1rem; /* Spacing between buttons */
+  }
+.login-button {
+  background-color: var(--login-button-bg);
+  color: var(--login-button-text-color);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+  border: none;
+}
+
+.login-button:hover,
+.login-button:focus {
+  background-color: var(--login-button-hover-bg);
+ color: var(--login-button-hover-text-color);
+   opacity: 0.9;
+}
+/* --- HERO SECTION (Central Box on index.html) --- */
+.hero {
+  text-align: center;
+  padding: 3rem 2rem;
+   background: var(--hero-bg-light);
+  border-radius: var(--border-radius);
+   max-width: 600px;  /* Smaller box */
+  margin: 0 auto;   /* Center the box */
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40rem;
+  height: 20rem;
+  padding-top: 3rem;
+}
+
+/*Changed here*/
+/* .dark-mode .hero {
+  background: var(--hero-bg-dark);
+  border-radius: var(--border-radius);
+} */
+/* .hero h1 {
+  font-size: 2rem;  /* Larger font */
+/* }
+.hero p{
+   font-size: 1rem;
+} */
+
+/* .search-section {
+  text-align: center; /* Center the search bar */
+/*   margin-bottom: 3rem; /* Spacing below the search bar */
+/*   margin-top: 20px;
+} */ 
+
+/* .search-section input[type="text"] {
+  padding: 1rem;
+  border: 1px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 600px;
+  font-family: inherit; /* Use the same font as the rest of the page */
+/*   font-size: 1rem;
+}  */
+
+/* .search-section button {
+  padding: 0.8rem 1.6rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+} */
+
+/* .search-section button:hover {
+  opacity: 0.9;
+} */
+
+/* .no-results {
+  text-align: center;
+  margin-top: 2rem;
+  font-style: italic;
+  color: var(--accent-color);
+  grid-column: 1 / -1;
+  padding: 2rem;
+} */
+
+/* Add to style.css, if needed for spacing */
+/* .search-results {
+  padding: 2rem;
+} */
+
+/* .search-results h2 {
+  margin-bottom: 1.5rem;
+} */
+
+/* Featured Game Cards */
+.game-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3.5rem;
+}
+
+.game-card {
+  background-color: var(--card-bg-color);
+  box-shadow: 0 5px 10px var(--shadow-color);
+  border-radius: var(--border-radius);
+  padding: 1.8rem;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: center;
+}
+
+.game-card.neumorphic {
+  box-shadow: var(--neumorphic-shadow-light);
+}
+
+.dark-mode .game-card.neumorphic {
+  box-shadow: var(--neumorphic-shadow-dark);
+}
+
+.game-card.glassmorphic {
+  background-color: var(--glass-bg-color);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+
+.game-card:hover, .game-card:focus-within {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(28, 66, 194, 0.616);
+}
+
+.game-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  margin-bottom: 1.2rem;
+}
+
+.game-card a.game-link {
+  text-decoration: none;
+  color: var(--text-color);
+  display: block;
+  height: 100%;
+}
+
+/* Download Button */
+.download-button {
+  background-color: #00000091;
+  color: #c7c7c7;
+  padding: 0.8rem 1.6rem;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  display: inline-block;
+  transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  margin-top: auto;
+  align-self: center;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+/*Changing download button color on light mode*/
+body:not(.dark-mode) .download-button{
+   background-color: var(--download-bg-light);
+}
+
+.download-button:hover, .download-button:focus {
+ background-color: rgba(0, 0, 0, 0.555);
+ color: #c7c7c7;
+  opacity: 0.9;
+  transform: scale(1.05);
+  outline: none;
+}
+/*hover in light theme*/
+body:not(.dark-mode) .download-button:hover, body:not(.dark-mode) .download-button:focus{
+ background-color: rgba(173, 216, 230, 0.5);
+}
+
+/* Game Item (Games Page) */
+.game-item {
+  width: 25rem;
+  display: flex;
+  margin: 4.5rem;
+  border: 1px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  background-color: var(--card-bg-color);
+  box-shadow: 0 3px 6px var(--shadow-color);
+  transition: box-shadow var(--transition-speed) ease;
+}
+
+.game-item:hover, .game-item:focus-within {
+  box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.game-item img {
+  width: 280px;
+  height: 160px;
+  object-fit: cover;
+  margin: 1.8rem;
+  border-radius: var(--border-radius);
+}
+
+.game-info {
+  flex: 1;
+}
+
+/* Blog Post */
+.blog-posts article {
+  margin-bottom: 2.5rem;
+  padding: 1.8rem;
+  border-radius: var(--border-radius);
+  background-color: var(--card-bg-color);
+  box-shadow: 0 3px 6px var(--shadow-color);
+  transition: box-shadow var(--transition-speed) ease;
+}
+
+.blog-posts article:hover {
+  box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.blog-posts .post-date {
+  font-style: italic;
+  color: var(--accent-color);
+}
+
+/* Contact Form */
+.contact-form {
+  padding: 2.5rem;
+  background-color: var(--card-bg-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 10px var(--shadow-color);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+}
+
+.error-message {
+  color: red;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+  border-color: var(--text-color);
+  outline: none;
+}
+
+.contact-form input:invalid,
+.contact-form textarea:invalid {
+  border-color: red;
+}
+
+.contact-form button[type="submit"] {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.9rem 1.8rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  font-weight: 500;
+}
+
+.contact-form button[type="submit"]:hover, .contact-form button[type="submit"]:focus {
+  opacity: 0.9;
+  transform: scale(1.05);
+  outline: none;
+}
+
+/* Footer */
+footer {
+  flex-shrink: 0; /* Prevents the footer from shrinking */
+  --center-abs-margin: 20px;
+  --lhs-margin: 10px;
+  --center-margin: 5px;
+  --lhs-width: calc(var(--center-abs-margin) - var(--lhs-margin) - var(--center-margin));
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--card-bg-color);
+  border-top: 1px solid var(--accent-color);
+  margin-top: auto; /* Changed from margin-top: 3rem to auto */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- RESPONSIVE (Media Queries) --- */
+@media (max-width: 768px) {
+
+  header,
+  main,
+  footer {
+      padding: 1.2rem;
+  }
+
+  nav {
+      flex-direction: column;
+  }
+   .nav-buttons {
+      flex-direction: row; /*Change for all size screens*/
+      width: auto; /*Change for all size screens*/
+  }
+.login-button{
+      width: auto; /*Change for all size screens*/
+      text-align: center;
+  }
+
+  nav ul {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      flex-grow: 0;
+      width: 100%;
+  }
+
+  nav ul li {
+      width: 100%;
+      text-align: center;
+  }
+
+  .game-card {
+      width: 100%;
+  }
+
+  .game-card img {
+      height: auto;
+  }
+
+  .game-item {
+      flex-direction: column;
+  }
+
+  .game-item img {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 1.2rem;
+      height: auto;
+  }
+
+  .hero {
+      padding: 3rem 1.2rem;
+  }
+
+  .hero h1 {
+      font-size: 2rem;
+  }
+
+  .contact-form div {
+      margin-bottom: 0.5rem;
+  }
+    /* Adjust form layout for smaller screens */
+  .form-container {
+      flex-direction: column;
+  }
+
+  .form-container form {
+      width: 100%; /* Forms take full width on small screens */
+      margin-bottom: 1.5rem; /* Space between forms */
+  }
+}
+
+/* Dark Mode Toggle (no changes needed) */
+/* .dark-mode-toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+} */
+
+/* .dark-mode-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+} */
+
+/* .dark-mode-toggle label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+} */
+
+/* .dark-mode-toggle label:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+} */
+
+input:checked+label {
+  background-color: #2196F3;
+}
+
+input:checked+label:before {
+  transform: translateX(26px);
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+/* Style for the "Coming Soon" section */
+.coming-soon {
+  text-align: center;
+  padding: 4rem;
+  background-color: var(--card-bg-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 10px var(--shadow-color);
+}
+
+.coming-soon h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-color);
+}
+
+/* Sun and Moon Icons */
+/* .dark-mode-toggle .sun-icon,
+.dark-mode-toggle .moon-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #f1c40f;
+  transition: opacity 0.4s, color 0.4s;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.dark-mode-toggle .sun-icon {
+  left: 6px;
+  opacity: 1;
+}
+
+.dark-mode-toggle .moon-icon {
+  right: 6px;
+  opacity: 0;
+  color: #fff;
+} */
+
+/* Dark Mode Styles */
+input:checked+label {
+  background-color: #2196F3;
+}
+
+input:checked+label:before {
+  transform: translateX(26px);
+}
+
+/* Show/Hide Icons in Dark Mode */
+input:checked+label .sun-icon {
+  opacity: 0;
+}
+
+input:checked+label .moon-icon {
+  opacity: 1;
+  color: #bdc3c7;
+}
+
+/* Login/Signup Page Styles */
+
+.auth-form {
+  padding: 2.5rem;
+  background-color: var(--card-bg-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 10px var(--shadow-color);
+  max-width: 800px; /* Adjust as needed */
+  margin: 0 auto;
+}
+.auth-form h2{
+  text-align: center;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem; /* Spacing between forms */
+}
+
+.form-container form {
+  flex: 1; /* Forms share available space */
+  padding: 1.5rem;
+  border: 1px solid var(--accent-color);
+  border-radius: var(--border-radius);
+}
+
+.form-container form h3 {
+  margin-top: 0; /* Remove top margin from form headings */
+   text-align: center;
+
+}
+
+.form-container form div {
+  margin-bottom: 1rem;
+}
+
+.form-container form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-container form input[type="text"],
+.form-container form input[type="email"],
+.form-container form input[type="password"] {
+  width: 95%;
+  padding: 0.75rem;
+  border: 1px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+.form-container form button[type="submit"] {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%;
+   display: block;  /* Make button full-width within its container */
+  margin-top: 1rem;
+}
+
+.form-container form button[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+/* Search Results Styling */
+#results-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    margin: 0.25rem;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+}
+
+.tags {
+    margin: 1rem 0;
+}
+
+.file-size {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+} 

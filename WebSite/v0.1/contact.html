@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact us for support or feedback.">
+    <title>Contact - Indie Game Hub</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">IndieGameHub</a>
+            </div>
+            <ul role="list">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <!-- <li><a href="contact.html">Contact</a></li>
+                 <li><a href="login.html">Login</a></li> -->  <!-- Add to all pages EXCEPT login.html -->
+            </ul>
+            <!-- <div class="nav-buttons">
+                <div class="dark-mode-toggle">  <!-- Dark mode toggle FIRST -->
+                    <!-- <input type="checkbox" id="dark-mode-checkbox" aria-label="Toggle Dark Mode">
+                    <label for="dark-mode-checkbox">
+                        <i class="sun-icon fas fa-sun" aria-hidden="true"></i>
+                        <i class="moon-icon fas fa-moon" aria-hidden="true"></i>
+                    </label>
+                </div>
+            </div> --> 
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-form">
+            <h2>Contact Us</h2>
+            <form action="#" method="post" id="contact-form">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <div class="error-message" id="name-error"></div>
+                </div>
+
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error-message" id="email-error"></div>
+                </div>
+
+                <div>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required rows="6"></textarea>
+                    <div class="error-message" id="message-error"></div>
+                </div>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 IndieGameHub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
