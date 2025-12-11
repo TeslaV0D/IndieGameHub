@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login or Sign Up to Indie Game Hub">
+    <title>Login/Signup - Indie Game Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">IndieGameHub</a>
+            </div>
+            <ul role="list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <!-- <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" aria-current="page">Login</a></li> -->  <!--  login.html -->
+            </ul>
+            <!-- <div class="nav-buttons">
+                <div class="dark-mode-toggle">  <!-- Dark mode toggle FIRST -->
+                    <!-- <input type="checkbox" id="dark-mode-checkbox" aria-label="Toggle Dark Mode">
+                    <label for="dark-mode-checkbox">
+                        <i class="sun-icon fas fa-sun" aria-hidden="true"></i>
+                        <i class="moon-icon fas fa-moon" aria-hidden="true"></i>
+                    </label>
+                </div>
+            </div> -->
+        </nav>
+    </header>
+
+    <main>
+      <section class="auth-form">
+        <h2>Login / Sign Up</h2>
+        <div class="form-container">
+            <form action="#" method="post" id="login-form">
+               <h3>Login</h3>
+                <div>
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="login-email" required>
+                </div>
+                <div>
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" name="login-password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+
+            <form action="#" method="post" id="signup-form">
+                <h3>Sign Up</h3>
+                <div>
+                    <label for="signup-username">Username:</label>
+                    <input type="text" id="signup-username" name="signup-username" required>
+                </div>
+                <div>
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" name="signup-email" required>
+                </div>
+                <div>
+                    <label for="signup-password">Password:</label>
+                    <input type="password" id="signup-password" name="signup-password" required>
+                </div>
+                <button type="submit">Sign Up</button>
+             </form>
+        </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2025 IndieGameHub. All rights reserved.</p>
+    </footer>
+     <script src="script.js"></script>
+</body>
+</html>
